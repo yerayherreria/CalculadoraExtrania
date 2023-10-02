@@ -20,7 +20,7 @@
           <form>
             <div class="form-group">
               <label for="number1">Number:</label>
-              <input type="text" id="number1" class="form-control" placeholder="Number" name="num" required>
+              <input type="text" id="number1" class="form-control" placeholder="Number" name="num" >
             </div>
             <div class="form-group">
             	<label for="options">Options:</label>
@@ -31,12 +31,22 @@
 				</select>
             </div>
 			<div class="form-group">
-              <label for="text">La solución es: <%out.println(Calculadora.enviar(request.getParameter("num"),request.getParameter("signos"))); %></label>
+              <label for="text">La solución es: <%
+              if(request.getParameter("enviar")!=null) {
+            	  out.println(Calculadora.enviar(request.getParameter("num"),request.getParameter("signos")));
+              }
+              if(request.getParameter("borrar")!=null){
+            	  Calculadora.borrar();
+              }
+              if(request.getParameter("resultado")!=null){
+            	  out.println(Calculadora.solucionar());
+              }
+               %></label>
             </div>
           	<hr> 
-            <input class="btn btn-primary" type="button" value="Result" name="resultado">&nbsp
+            <input class="btn btn-primary" type="submit" value="Result" name="resultado">&nbsp
 			<input class="btn btn-primary" type="submit" value="Send" name="enviar">&nbsp
-			<input class="btn btn-primary" type="reset" value="Reset" name="borrar">
+			<input class="btn btn-primary" type="submit" value="Reset" name="borrar">
           </form>
         <div class="footer mt-auto">
           <p>© 2023 IES Jacarandá</p>
