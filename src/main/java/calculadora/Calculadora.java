@@ -22,38 +22,41 @@ public class Calculadora {
 		int total=0;
 		String operadorUlt="";
 		StringBuilder num = new StringBuilder();
-		
-		for(int i=0;i<sb.length();i++) {
-			if(sb.charAt(i)=='+') {
-				if(operadorUlt.equals("+")) {
-					total+=Integer.valueOf(num.toString());
-				} else if(operadorUlt.equals("-")) {
-					total-=Integer.valueOf(num.toString());
+		try {
+			for(int i=0;i<sb.length();i++) {
+				if(sb.charAt(i)=='+') {
+					if(operadorUlt.equals("+")) {
+						total+=Integer.valueOf(num.toString());
+					} else if(operadorUlt.equals("-")) {
+						total-=Integer.valueOf(num.toString());
+					} else {
+						total=Integer.valueOf(num.toString());
+					}
+					operadorUlt="+";
+					num.setLength(0);
+				} else if(sb.charAt(i)=='-') {
+					if(operadorUlt.equals("+")) {
+						total+=Integer.valueOf(num.toString());
+					} else if(operadorUlt.equals("-")) {
+						total-=Integer.valueOf(num.toString());
+					} else {
+						total=Integer.valueOf(num.toString());
+					}
+					operadorUlt="-";
+					num.setLength(0);
 				} else {
-					total=Integer.valueOf(num.toString());
+					num.append(sb.charAt(i));
 				}
-				operadorUlt="+";
-				num.setLength(0);
-			} else if(sb.charAt(i)=='-') {
-				if(operadorUlt.equals("+")) {
-					total+=Integer.valueOf(num.toString());
-				} else if(operadorUlt.equals("-")) {
-					total-=Integer.valueOf(num.toString());
-				} else {
-					total=Integer.valueOf(num.toString());
-				}
-				operadorUlt="-";
-				num.setLength(0);
-			} else {
-				num.append(sb.charAt(i));
 			}
-		}
-		if(operadorUlt.equals("+")) {
-			total+=Integer.valueOf(num.toString());
-		} else if(operadorUlt.equals("-")) {
-			total-=Integer.valueOf(num.toString());
-		} else {
-			total=Integer.valueOf(num.toString());
+			if(operadorUlt.equals("+")) {
+				total+=Integer.valueOf(num.toString());
+			} else if(operadorUlt.equals("-")) {
+				total-=Integer.valueOf(num.toString());
+			} else {
+				total=Integer.valueOf(num.toString());
+			}
+		} catch (Exception e) {
+			total=0;
 		}
 		return total;
 	}
