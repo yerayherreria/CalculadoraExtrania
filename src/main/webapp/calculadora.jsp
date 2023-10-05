@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="login-container mx-auto"> 
-          <h2>Calculator</h2>
+          <h2>Calculatorr</h2>
           <form>
             <div class="form-group">
               <label for="number1">Number:</label>
