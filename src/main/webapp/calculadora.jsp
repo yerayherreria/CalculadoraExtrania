@@ -16,11 +16,11 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <div class="login-container mx-auto"> 
-          <h2>Calculatorr</h2>
-          <form>
+          <h2>Calculator</h2>
+          <form method="get" action="">
             <div class="form-group">
               <label for="number1">Number:</label>
-              <input type="text" id="number1" class="form-control" placeholder="Number" name="num" >
+              <input type="number" step="any" id="number1" class="form-control" placeholder="Number" name="num" >
             </div>
             <div class="form-group">
             	<label for="options">Options:</label>
@@ -30,8 +30,9 @@
 				        <option name="2">-</option>
 				</select>
             </div>
-			<div class="form-group">
-              <label for="text">La solución es: <%
+            <!-- CUADRO QUE MUESTRA INFORMACIÓN -->
+			<div class="info">
+              <textarea cols="32" readonly="readonly"> <%
               if(request.getParameter("enviar")!=null) {
             	  out.println(Calculadora.enviar(request.getParameter("num"),request.getParameter("signos")));
               }
@@ -41,9 +42,10 @@
               if(request.getParameter("resultado")!=null){
             	  out.println(Calculadora.solucionar());
               }
-               %></label>
+               %></textarea>
             </div>
           	<hr> 
+          	<!-- BOTONES -->
             <input class="btn btn-primary" type="submit" value="Result" name="resultado">&nbsp
 			<input class="btn btn-primary" type="submit" value="Send" name="enviar">&nbsp
 			<input class="btn btn-primary" type="submit" value="Reset" name="borrar">
