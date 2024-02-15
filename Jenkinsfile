@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/yerayherreria/CalculadoraExtrania.git'
+                git 'https://github.com/Herme02/Calculadora.git'
             }
         }
         stage('Build') {
