@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Indica que se debe obtener la rama "main" del repositorio
-                git branch: 'main', url: ''
+                git branch: 'main', url: 'https://github.com/yerayherreria/CalculadoraExtrania.git'
                 // Opcional: Si el repositorio es privado y requiere autenticación
                 // git credentialsId: 'id-de-las-credenciales', branch: 'main', url: 'https://ruta-del-repositorio.git'
             }
