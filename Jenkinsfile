@@ -1,24 +1,15 @@
 pipeline {
     agent any
-   
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Herme02/Calculadora.git'
+                // Indica que se debe obtener la rama "main" del repositorio
+                git branch: 'main', url: ''
+                // Opcional: Si el repositorio es privado y requiere autenticación
+                // git credentialsId: 'id-de-las-credenciales', branch: 'main', url: 'https://ruta-del-repositorio.git'
             }
         }
-        stage('Build') {
-    steps {
-        // Crear directorio Calculadora dentro de webapps si no existe
-        sh 'mkdir -p webapps/Calculadora'
-        // Copiar archivos y directorios necesarios a Calculadora
-        sh 'cp -r Jenkinsfile build src webapps/Calculadora/'
+        // Otros pasos del pipeline
     }
-}
-        stage('Deploy') {
-            steps {
-                echo 'Despliegue exitoso'
-            }
-        }
-    }
+    // Opciones adicionales como notificaciones, post-actions, etc.
 }
