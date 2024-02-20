@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clonar Repositorio') {
         steps {
-            git branch: 'main', url: 'https://github.com/yerayherreria/CalculadoraExtrania.git'
+            git branch: 'main', url: 'https://github.com/JesusLopezGomez/calculadoraSpring.git'
         }
         }
         stage('Construir Aplicación') {
